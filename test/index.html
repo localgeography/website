@@ -15,13 +15,68 @@
 	  </style>
   </head>
   <body>
+	<script src="assets/js/Montreal_Data.js"></script>
     <div id="map">
       <b id="title">this is a test</b>
     </div>
 	<script>
 		var map = L.map('map').setViewo([45.5019, -73.5674], 11);
-		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 12, attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
-		var marker = L.marker([45.5204, -73.5495]).addTo(map);
+		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {axZoom: 12, attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+												
+		L.geoJSON(events).addTo(map);
+
+		// ===== MAIN FUNCTION: PROCESS AND DISPLAY ALL EVENTS =====
+		// This function takes the GeoJSON data and creates markers on the map 
+		// Parameter: geojsonData - The entire Montreal events dataset 
+		function displayEvents(geojsonData) {
+			let eventCount = 0;
+
+				// LOOP THROUGH EACH EVENT (FEATURE) IN THE DATA
+				// geojsonData.features is an array of all events
+				// Each 'feature' represents one event with properties and geometry 
+				geojsonData.features.forEach(feature) => {
+					// VALIDATION: Skip events that don't have location data 
+					// Some events are online-only and don't have coordinates 
+					if (!feature.geometry || !feature.geometry.coordinates) { 
+						return; // Skip to next event
+					}
+
+					// EXTRACT DATA FROM THE FEATURE
+					// props = all the event information (title, description, date, etc.) 
+					// coords= the [longitude, latitude] array from geometry
+					const props = feature.properties;
+					const coords = feature.geometry.coordinates;
+
+					// CONVERT COORDINATES TO LAT/LNG
+					// GeoJSON format stores coordinates as [longitude, latitude] // Leaflet expects [latitude, longitude]
+					// So we need to reverse them:
+					const lat = coords[1]; // Second value is latitude
+					const Ing = coords[0]; // First value is longitude
+
+					// CREATE AND ADD MARKER TO MAP
+					// L.marker([lat, lng]) - Creates a marker at this location // { icon: eventIcon } Uses our custom icon
+					// .addTo(map) Adds the marker to our map
+					const marker = L.marker([lat, lng], { icon: eventIcon }).addTo(map); 
+					eventCount++; // Count how many events we've added
+
+					// ===== BUILD THE POPUP CONTENT =====
+					// This creates the HTML that appears when you click a marker 
+					let popupContent = '<div class="event-popup">';
+
+					// Add event type badge (e.g., "Séance d'information")
+					popupContent += '<span class="event-type">${props.type_evenement || "Événement"}</span>';
+														
+					}
+				}
+													
+			// EXECUTE THE MAIN FUNCTION
+			// this is where everything happens!
+			// call the displayEvents() function and load in the montrealData variable
+			// montrealData comes from montreal.js that we loaded before
+			displayEvents(montrealData);
+
+		// confirm data loaded successfully
+		console.log("Montreal Data loaded successfully");
 	</script> 
   </body>
 </html>
