@@ -11,15 +11,17 @@
 		crossorigin=""></script>
 	  <style>
 		  #map { height: 500px; }
+		  #title { fontsize: 16pt; }
 	  </style>
   </head>
   <body>
     <div id="map">
-      <b>this is a test</b>
+      <b id="title">this is a test</b>
     </div>
 	<script>
 		var map = L.map('map').setViewo([45.5019, -73.5674], 11);
 		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 12, attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+		var marker = L.marker([45.5204, -73.5495]).addTo(map);
 	</script> 
   </body>
 </html>
