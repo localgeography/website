@@ -23,7 +23,7 @@
 		var map = L.map('map').setView([45.5019, -73.5674], 11);
 		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 12, attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
 												
-		L.geoJSON(events).addTo(map);
+		// L.geoJSON(events).addTo(map);
 
 		// ===== MAIN FUNCTION: PROCESS AND DISPLAY ALL EVENTS =====
 		// This function takes the GeoJSON data and creates markers on the map 
