@@ -176,7 +176,20 @@
 										<!-- Article 5 Interactive Webmap with Leaflet -->
 										<article>
 											<div id="events">
-												<!-- first we need to load the montreal data because we are hosting it locally-->
+												<div class="inner">
+													<h4>Interactive Map Webmap of Montreal with Leaflet</h4>
+													<p>An interactive webmap of events held in Montreal with data courtesy of <a href="https://donnees.montreal.ca/en/dataset/evenements-publics">Montreal Open Data</a><br/>
+
+														<h5>Planned updates</h5>
+														<ul style="list-style:circle;">
+															<li>add popups that show event information (name, date, location, etc.)</li>
+															<li>styling to change marker colours by event type</li>
+															<li><a href="https://leafletjs.com/examples/layers-control/">toggle layers by year</a></li>
+														</ul>
+													</p>
+												</div>
+											</div>
+											<!-- first we need to load the montreal data because we are hosting it locally-->
 												<!-- this script loads montrealData.js which contains const montrealData = {...} -->
 												<!-- after this loads, the var montrealData becomes available globally -->
 												<!-- IMPORTANT this MUST load BEFORE we use it below --->
@@ -243,19 +256,6 @@
 													// confirm data loaded successfully
 													console.log("Montreal Data loaded successfully");												
 												</script>
-												<div class="inner">
-													<h4>Interactive Map Webmap of Montreal with Leaflet</h4>
-													<p>An interactive webmap of events held in Montreal with data courtesy of <a href="https://donnees.montreal.ca/en/dataset/evenements-publics">Montreal Open Data</a><br/>
-
-														<h5>Planned updates</h5>
-														<ul style="list-style:circle;">
-															<li>add popups that show event information (name, date, location, etc.)</li>
-															<li>styling to change marker colours by event type</li>
-															<li><a href="https://leafletjs.com/examples/layers-control/">toggle layers by year</a></li>
-														</ul>
-													</p>
-												</div>
-											</div>
 										</article>
 									</div>
 								</div>
