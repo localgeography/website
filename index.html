@@ -175,7 +175,8 @@
 										</article>
 										<!-- Article 5 Interactive Webmap with Leaflet -->
 										<article>
-											<div id="events">
+											<script src="assets/js/Montreal_Data.js"></script>
+											<div id="map">
 												<div class="inner">
 													<h4>Interactive Map Webmap of Montreal with Leaflet</h4>
 													<p>An interactive webmap of events held in Montreal with data courtesy of <a href="https://donnees.montreal.ca/en/dataset/evenements-publics">Montreal Open Data</a><br/>
@@ -193,7 +194,6 @@
 												<!-- this script loads montrealData.js which contains const montrealData = {...} -->
 												<!-- after this loads, the var montrealData becomes available globally -->
 												<!-- IMPORTANT this MUST load BEFORE we use it below --->
-												<script src="assets/js/Montreal_Data.js"></script>
 												<script>
 													var map = L.map('map').setViewo([45.5019, -73.5674], 11);
 													L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -667,4 +667,5 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/main.js"></script>
 
 	</body>
+
 </html>
