@@ -20,7 +20,7 @@
       <b id="title">this is a test</b>
     </div>
 	<script>
-		var map = L.map('map').setViewo([45.5019, -73.5674], 11);
+		const map = L.map('map').setViewo([45.5019, -73.5674], 11);
 		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {axZoom: 12, attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
 												
 		L.geoJSON(events).addTo(map);
