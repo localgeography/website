@@ -11,14 +11,13 @@
 		crossorigin=""></script>
 	  <style>
 		  #map { height: 500px; }
-		  #title { fontsize: 16pt; }
+		  #title { font-size: 16pt; }
 	  </style>
   </head>
   <body>
-	<script src="assets/js/Montreal_Data.js"></script>
-    <div id="map">
-      <b id="title">this is a test</b>
-    </div>
+	<script src="../assets/js/Montreal_Data.js"></script>
+    <h1 id="title">this is a test</h1>
+    <div id="map"></div>
 	<script>
 		var map = L.map('map').setView([45.5019, -73.5674], 11);
 		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 12, attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
@@ -34,7 +33,7 @@
 				// LOOP THROUGH EACH EVENT (FEATURE) IN THE DATA
 				// geojsonData.features is an array of all events
 				// Each 'feature' represents one event with properties and geometry 
-				geojsonData.features.forEach(feature) => {
+				geojsonData.features.forEach((feature) => {
 					// VALIDATION: Skip events that don't have location data 
 					// Some events are online-only and don't have coordinates 
 					if (!feature.geometry || !feature.geometry.coordinates) { 
@@ -51,12 +50,12 @@
 					// GeoJSON format stores coordinates as [longitude, latitude] // Leaflet expects [latitude, longitude]
 					// So we need to reverse them:
 					const lat = coords[1]; // Second value is latitude
-					const Ing = coords[0]; // First value is longitude
+					const lng = coords[0]; // First value is longitude
 
 					// CREATE AND ADD MARKER TO MAP
 					// L.marker([lat, lng]) - Creates a marker at this location // { icon: eventIcon } Uses our custom icon
 					// .addTo(map) Adds the marker to our map
-					const marker = L.marker([lat, lng], { icon: eventIcon }).addTo(map); 
+					const marker = L.marker([lat, lng]).addTo(map); 
 					eventCount++; // Count how many events we've added
 
 					// ===== BUILD THE POPUP CONTENT =====
@@ -64,10 +63,13 @@
 					let popupContent = '<div class="event-popup">';
 
 					// Add event type badge (e.g., "Séance d'information")
-					popupContent += '<span class="event-type">${props.type_evenement || "Événement"}</span>';
-														
-					}
-				}
+					popupContent += `<span class="event-type">${props.type_evenement || "Événement"}</span>`;
+				popupContent += '</div>';
+
+				// Attach popup to marker
+				marker.bindPopup(popupContent);
+			});
+		}
 													
 			// EXECUTE THE MAIN FUNCTION
 			// this is where everything happens!
