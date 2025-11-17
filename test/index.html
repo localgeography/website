@@ -63,9 +63,9 @@
 					let popupContent = '<div class="event-popup">';
 
 					// Add event type badge (e.g., "Séance d'information")
-					popupContent += `<span class="event-name">${props.titre}</span>`;
-					popupContent += `<span class="event-type">${props.type_evenement}</span>`;
-					popupContent += `<span class="event-desc">${props.description}</span>`;
+					popupContent += `<div class="event-name">${props.titre}</span>`;
+					popupContent += `<div class="event-type">Type d'èvenement: ${props.type_evenement}</span>`;
+					popupContent += `<div class="event-desc">Description: ${props.description}</span>`;
 				popupContent += '</div>';
 
 				// Attach popup to marker
