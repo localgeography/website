@@ -1,680 +1,921 @@
-<!DOCTYPE HTML>
-<!--
-	Read Only by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Local Geography by James Millar Mejino</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!-- Leaflet CSS -->
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
-		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-		crossorigin=""/>
-		<!-- Leaflet JS -->
-		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-		integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-		crossorigin=""></script>
+<!DOCTYPE html>
+<html class="no-js ss-preload" lang="en">
+<head>
 
-		<style>
-			#map { height: 500px; }
-		</style>
-	 
-	</head>
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Luther</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- hola css 
+	================================================== -->
+	<link rel="stylesheet" href="../Hola/css/vendor.css">
+	<link rel="stylesheet" href="../Hola/css/base.css">
+	<!-- <link rel="stylesheet" href="../Hola/css/main.css"> -->
+	<link rel="stylesheet" href="../Hola/css/fonts.css">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
 	
-	<body class="is-preload">
+	<!-- hola js 
+	================================================== -->
+	<!-- <script src="../Hola/js/modernizr.js"></script> -->
+	<!-- only needed to enable parallax -->
+	<!-- <script src="../Hola/js/pace.min.js"></script> -->
+	<!-- only needed to enable parallax -->
 
-		<!-- Header -->
-			<section id="header">
-				<header>
-					<span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>
-					<h1 id="logo"><a href="#">James Millar Mejino</a></h1>
-					<p>&#128190;GIS Data Analyst <br/>
-						&#128690; Future MUP <br/>
-						&#x269C; Montreal local</p>
-				</header>
-				<nav id="nav">
-					<ul>
-						<li><a href="#About" class="active">About</a></li>
-						<li><a href="#Skills">Skills</a></li>
-						<li><a href="#Portfolio">Portfolio</a></li>
-						<li><a href="mailto:localgeography@proton.me">Contact</a></li>
-					</ul>
-				</nav>
-				<footer>
-					<ul class="icons">
-						<li><a href="https://bsky.app/profile/localgeography.bsky.social" class="icon brands fa-twitter"><span class="label">Bluesky</span></a></li>
-						<li><a href="https://ca.linkedin.com/in/localgeography" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="https://github.com/localgeography" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						<li><a href="https://www.spatialnode.net/localgeo" class="fas fa-globe-americas"><span class="label">Spatialnode</span></a></li>
-						<li><a href="mailto:localgeography@proton.me" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-				</footer>
-			</section>
+</head>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+<body id="top">
 
-				<!-- Main -->
-					<div id="main">
 
-						<!-- About -->
-							<section id="About">
-								<div class="image main" data-position="center">
-									<img src="images/banner.jpg" alt="" />
-								</div>
-								<div class="container">
-									<header class="major">
-										<h2>About Me</h2>
-										<p>&#127758;Local Geographer &#9925; Earth Observer &#127744; Time Traveller</p>
-									</header>
-									<p>James Millar Mejino is an interdisciplinary scholar and future urban planner. His practice blends quantitative, geographical, and design approaches to spatial and social issues. Growing up in an international, multicultural context informs his interest in investigating the complex interplay between the environment, the built form, and human agents.</p>
-									<p>An alumnus of McGill University with a Bachelor of Arts in Urban Studies, James Millar Mejino is skilled in digital cartography, data analysis, urban social geography, and field methods. His work focuses on mapping everyday urban geographies that examines placemaking and how regular people shape and are in turn shaped by their surroundings.</p>
-									<p>With experience in the public, private, and non-profit sectors, he aims to be an urban planner that bridges the gap between government, developers, and communities.</p>
-									<p>Outside academic and professional pursuits, he enjoys traveling and art.</p>
-								</div>
-							</section>
+    <!-- # preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader">
+        </div>
+    </div>
 
-						<!-- Skills -->
-							<section id="Skills">
-								<div class="container">
-									<h3>Skills</h3>
-									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer lorem ipsum dolor sit amet.</p>
-									<ul class="feature-icons">
-										<li class="icon solid fa-globe">ArcGIS Pro, QGIS</li>
-										<li class="icon solid fa-code">Python, RStudio</li>
-										<li class="icon solid fa-bolt">Data Visualization</li>
-										<li class="icon solid fa-book">Research</li>
-										<li class="icon solid fa-coffee">Field Methods</li>
-										<li class="icon solid fa-users">Stakeholder Engagement</li>
-									</ul>
-								</div>
-							</section>
 
-						<!-- Portfolio -->
-							<section id="Portfolio">
-								<div class="container">
-									<h3>Portfolio</h3>
-									<p>Here are some of my works!</p>
-									<div class="features">
-										<!-- Article 1 Public Health-->
-										<article>
-											<a href="https://www.spatialnode.net/projects/location-allocation-project-610390" class="image"><img src="images/PublicHealth01.jpg" alt="Map comparing which neighbourhoods are served by each hospital in Calgary before and after the South Health Campus opened." /></a>
-											<div class="inner">
-												<h4>Analyzing the Expansion of Access to Public Health Facilities in Calgary, AB</h4>
-												<p>The South Health Campus is the newest hospital in Calgary. Construction began in 2007, doors opened in 2012, and the facility became fully operational in 2016. <br/> 
-												<br>
-												This project used the network analyst plugin to assess how the opening of the hospital has met demands in Calgary's healthcare network. Of particular interest is to see if it has alleviated demand on the Foothills Medical Centre, which is the largest hospital in Alberta. <br/>
-													
-													<h5>Data</h5>
-													<ul style="list-style-type:circle;">
-  														<li>Community District Boundaries. <i>Calgary Open Data</i> (2025, March 1) <a href="https://data.calgary.ca/Base-Maps/Community-District-Boundaries/surr-xmvs/about_data">https://data.calgary.ca/Base-Maps/Community-District-Boundaries/surr-xmvs/about_data</a> </li>
-  														<li>Community Services. <i>Calgary Open Data</i> (2025, March 1) <a href="https://data.calgary.ca/Services-and-Amenities/Community-Services/x34e-bcjz/about_data">https://data.calgary.ca/Services-and-Amenities/Community-Services/x34e-bcjz/about_data</a> </li>
-  														<li>Major Road Network. <i>Calgary Open Data</i> (2025, March 13) <a href="https://data.calgary.ca/Transportation-Transit/Major-Road-Network/mybc-x96b">https://data.calgary.ca/Transportation-Transit/Major-Road-Network/mybc-x96b</a> </li>
-													</ul> 
-												</p>
-											</div>
-										</article>
-										<!-- Article 2 Transportation -->
-										<article>
-											<a href="https://www.spatialnode.net/projects/service-area-analysis-04fe1e" class="image"><img src="images/Transportation01.gif" alt="Map showing areas in Calgary that will be more accessible by LRT when the Green Line opens." /></a>
-											<div class="inner">
-												<h4>Projecting the Expansion of Public Transit Access in Calgary, AB</h4>
-												<p>The Green Line is Calgary's largest public infrastructure project set to run from Calgary's north-central, through downtown, and to the south-east. When finished, the new LRT line will have 29 stations servicing over two dozen communities. <br/>
-												<br>
-												This project uses the network analyst plugin to analyze how the addition of the green line would expand access to rapid transit in Calgary. <br/>
-													
-												 	<h5>Data</h5>
-												 	<ul style="list-style:circle;">
-														<li>Green Line Alignment. <i>Calgary Open Data</i> (2025, February 6) <a href="https://data.calgary.ca/Transportation-Transit/Green-Line-Alignment/wyyc-63e5/about_data">https://data.calgary.ca/Transportation-Transit/Green-Line-Alignment/wyyc-63e5/about_data</a> </li>
-														<li>Calgary Transit Routes. <i>Calgary Open Data</i> (2025, March 17) <a href="https://data.calgary.ca/Transportation-Transit/Calgary-Transit-Routes/hpnd-riq4">https://data.calgary.ca/Transportation-Transit/Calgary-Transit-Routes/hpnd-riq4</a> </li>
-														<li>Major Road Network. <i>Calgary Open Data</i> (2025, March 13) <a href="https://data.calgary.ca/Transportation-Transit/Major-Road-Network/mybc-x96b">https://data.calgary.ca/Transportation-Transit/Major-Road-Network/mybc-x96b</a> </li>
-													</ul>
-												</p>
-											</div>
-										</article>
-										<!-- Article 3 Cherry Blossom -->
-										<article>
-											<a href="https://www.spatialnode.net/projects/vancouver-cherry-blossom-blooming-season-014d46" class="image"><img src="images/Cherry01.png" alt="Chart showing different cherry tree cultivars in Vancouver, what neighbourhoods they are present in, and their blooming seasons." /></a>
-											<div class="inner">
-												<h4>Visualizing Cherry Trees in Vancouver, BC by Cultivar, Neighbourhood, and Blooming Period</h4>
-												<p>The Vancouver Cherry Blossom Festival celebrates the coming of spring with community and cultural events every March and April. The Greater Vancouver area is home to over 50 different cultivars of cherry trees. <br/>
-												<br>
-												This project visualizes the spatial distribution of the most common cultivars of cherry trees found in Vancouver's neighbourhoods and their blooming periods. <a href="https://github.com/localgeography/cherry">See my code here.</a><br/>
+    <!-- # page wrap
+    ================================================== -->
+    <div class="s-pagewrap">
 
-													<h5>Data</h5>
-													<ul style="list-style:circle;">
-														<li>Blossom Map. <i>Vancouver Cherry Blossom Festival</i> (2025, April 15) <a href="https://finder.vcbf.ca/">https://finder.vcbf.ca/</a> </li>
-													</ul>
-													<h5>Packages</h5>
-													<ul style="list-style:circle;">
-														<li>tidyverse</li>
-														<li>dplyr</li>
-														<li>lubridate</li>
-														<li>ggplot2</li>
-														<li>ggpubr</li>
-														<li>patchwork</li>
-														<li>wesanderson</li>
-													</ul>
-												</p>
-											</div>
-										</article>
-										<!-- Article 4 Workflow Automation with Python-->
-										<article>
-											<a href="https://github.com/localgeography/auto-aggregate" class="image"><img src="images/PyAuto01.PNG" alt="Map showing example output of workflow automation script" /></a>
-											<div class="inner">
-												<h4>Automating a GIS Workflow with Python</h4>
-												<p>This project takes coordinates and a radius as user-input, turns them into a search area, and then automates a workflow that selects all buildings within the search area, calculates the area of each building, aggregates areas by category, and outputs a csv file containing categories and their respective aggregated areas. This script currently works with a fixed dataset so it has a preset list of categories and bounding box but can be altered to work with other datasets. <a href="https://github.com/localgeography/auto-aggregate">See my code here.</a><br/>
+        <!-- <div class="circles">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div> -->
 
-													<h5>Packages</h5>
-													<ul style="list-style:circle;">
-														<li>arcpy</li>
-														<li>pandas</li>
-														<li>geopandas</li>
-														<li>shapely</li>
-														<li>matplotlib</li>
-													</ul>
-												</p>
-											</div>
-										</article>
-										<!-- Article 5 Interactive Webmap with Leaflet -->
-										<article>
-											<script src="assets/js/Montreal_Data.js"></script>
-											<div id="map">
-												<div class="inner">
-													<h4>Interactive Map Webmap of Montreal with Leaflet</h4>
-													<p>An interactive webmap of events held in Montreal with data courtesy of <a href="https://donnees.montreal.ca/en/dataset/evenements-publics">Montreal Open Data</a><br/>
 
-														<h5>Planned updates</h5>
-														<ul style="list-style:circle;">
-															<li>add popups that show event information (name, date, location, etc.)</li>
-															<li>styling to change marker colours by event type</li>
-															<li><a href="https://leafletjs.com/examples/layers-control/">toggle layers by year</a></li>
-														</ul>
-													</p>
-												</div>
-											</div>
-											<!-- first we need to load the montreal data because we are hosting it locally-->
-												<!-- this script loads montrealData.js which contains const montrealData = {...} -->
-												<!-- after this loads, the var montrealData becomes available globally -->
-												<!-- IMPORTANT this MUST load BEFORE we use it below --->
-												<script>
-													var map = L.map('map').setViewo([45.5019, -73.5674], 11);
-													L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-													maxZoom: 12,
-													attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-													}).addTo(map);
-												
-													L.geoJSON(events).addTo(map);
+        <!-- ## hola site header 
+        ================================================== -->
+        <header class="s-header">
 
-													// ===== MAIN FUNCTION: PROCESS AND DISPLAY ALL EVENTS =====
-													// This function takes the GeoJSON data and creates markers on the map 
-													// Parameter: geojsonData - The entire Montreal events dataset 
-													function displayEvents(geojsonData) {
-														let eventCount = 0;
-
-													// LOOP THROUGH EACH EVENT (FEATURE) IN THE DATA
-													// geojsonData.features is an array of all events
-													// Each 'feature' represents one event with properties and geometry 
-														geojsonData.features.forEach(feature) => {
-															// VALIDATION: Skip events that don't have location data 
-															// Some events are online-only and don't have coordinates 
-															if (!feature.geometry || !feature.geometry.coordinates) { 
-																return; // Skip to next event
-															}
-
-															// EXTRACT DATA FROM THE FEATURE
-															// props = all the event information (title, description, date, etc.) 
-															// coords= the [longitude, latitude] array from geometry
-															const props = feature.properties;
-															const coords = feature.geometry.coordinates;
-
-															// CONVERT COORDINATES TO LAT/LNG
-															// GeoJSON format stores coordinates as [longitude, latitude] // Leaflet expects [latitude, longitude]
-															// So we need to reverse them:
-															const lat = coords[1]; // Second value is latitude
-															const Ing = coords[0]; // First value is longitude
-
-															// CREATE AND ADD MARKER TO MAP
-															// L.marker([lat, lng]) - Creates a marker at this location // { icon: eventIcon } Uses our custom icon
-															// .addTo(map) Adds the marker to our map
-															const marker = L.marker([lat, lng], { icon: eventIcon }).addTo(map); 
-															eventCount++; // Count how many events we've added
-
-															// ===== BUILD THE POPUP CONTENT =====
-															// This creates the HTML that appears when you click a marker 
-															let popupContent = '<div class="event-popup">';
-
-															// Add event type badge (e.g., "Séance d'information")
-															popupContent += '<span class="event-type">${props.type_evenement || "Événement"}</span>';
-														
-														}
-													}
-													
-													// EXECUTE THE MAIN FUNCTION
-													// this is where everything happens!
-													// call the displayEvents() function and load in the montrealData variable
-													// montrealData comes from montreal.js that we loaded before
-													displayEvents(montrealData);
-
-													// confirm data loaded successfully
-													console.log("Montreal Data loaded successfully");												
-												</script>
-										</article>
-									</div>
-								</div>
-							</section>
-
-							<!-- Article 6 Another Interactive Webmap with Leaflet 
-										<article>
-											<div id="geography"></div>
-											<script>
-												var map = L.map('map2').setView([45.5019, -73.5674], 11);
-												L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-												maxZoom: 12,
-												attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-												}).addTo(map2);
-											</script>
-											<div class="inner">
-												<h4>Environmental Storytelling</h4>
-												<p>An interactive map of environmental storytelling <a href="https://donnees.montreal.ca/en/dataset/evenements-publics">@localgeography</a><br/>
-
-													<h5>Plugins</h5>
-													<ul style="list-style:circle;">
-														<li>plugins</li>
-														<li>for this</li>
-														<li>project</li>
-														<li>go</li>
-														<li>here</li>
-													</ul>
-												</p>
-											</div>
-										</article>
-							-->
-
-						<!-- Five -->
-
-						<!-- 
-							<section id="four">
-								<div class="container">
-									<h3>Contact Me</h3>
-									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
-									<form method="post" action="#">
-										<div class="row gtr-uniform">
-											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
-											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
-											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
-											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
-											<div class="col-12">
-												<ul class="actions">
-													<li><input type="submit" class="primary" value="Send Message" /></li>
-													<li><input type="reset" value="Reset Form" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
-								</div>
-							</section>
-						-->
-
-						<!-- Five -->
-						<!--
-							<section id="five">
-								<div class="container">
-									<h3>Elements</h3>
-
-									<section>
-										<h4>Text</h4>
-										<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-										This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-										This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-										<hr />
-										<header>
-											<h4>Heading with a Subtitle</h4>
-											<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-										</header>
-										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-										<header>
-											<h5>Heading with a Subtitle</h5>
-											<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-										</header>
-										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-										<hr />
-										<h2>Heading Level 2</h2>
-										<h3>Heading Level 3</h3>
-										<h4>Heading Level 4</h4>
-										<h5>Heading Level 5</h5>
-										<h6>Heading Level 6</h6>
-										<hr />
-										<h5>Blockquote</h5>
-										<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-										<h5>Preformatted</h5>
-										<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-									</section>
-
-									<section>
-										<h4>Lists</h4>
-										<div class="row">
-											<div class="col-6 col-12-xsmall">
-												<h5>Unordered</h5>
-												<ul>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Sagittis adipiscing lorem eleifend.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ul>
-												<h5>Alternate</h5>
-												<ul class="alt">
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Sagittis adipiscing lorem eleifend.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ul>
-											</div>
-											<div class="col-6 col-12-xsmall">
-												<h5>Ordered</h5>
-												<ol>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Etiam vel felis at lorem sed viverra.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Etiam vel felis at lorem sed viverra.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ol>
-												<h5>Icons</h5>
-												<ul class="icons">
-													<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-													<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-													<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-													<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-													<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-													<li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
-												</ul>
-											</div>
-										</div>
-										<h5>Actions</h5>
-										<ul class="actions">
-											<li><a href="#" class="button primary">Default</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt">Default</a></li>
-										</ul>
-										<ul class="actions small">
-											<li><a href="#" class="button primary small">Small</a></li>
-											<li><a href="#" class="button small">Small</a></li>
-											<li><a href="#" class="button alt small">Small</a></li>
-										</ul>
-										<div class="row">
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary">Default</a></li>
-													<li><a href="#" class="button">Default</a></li>
-													<li><a href="#" class="button alt">Default</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6 col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary small">Small</a></li>
-													<li><a href="#" class="button small">Small</a></li>
-													<li><a href="#" class="button alt small">Small</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary fit">Default</a></li>
-													<li><a href="#" class="button fit">Default</a></li>
-													<li><a href="#" class="button alt fit">Default</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary small fit">Small</a></li>
-													<li><a href="#" class="button small fit">Small</a></li>
-													<li><a href="#" class="button alt small fit">Small</a></li>
-												</ul>
-											</div>
-										</div>
-									</section>
-
-									<section>
-										<h4>Table</h4>
-										<h5>Default</h5>
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Name</th>
-														<th>Description</th>
-														<th>Price</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Item One</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Two</td>
-														<td>Vis ac commodo adipiscing arcu aliquet.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Three</td>
-														<td> Morbi faucibus arcu accumsan lorem.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Four</td>
-														<td>Vitae integer tempus condimentum.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Five</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="2"></td>
-														<td>100.00</td>
-													</tr>
-												</tfoot>
-											</table>
-										</div>
-
-										<h5>Alternate</h5>
-										<div class="table-wrapper">
-											<table class="alt">
-												<thead>
-													<tr>
-														<th>Name</th>
-														<th>Description</th>
-														<th>Price</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Item One</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Two</td>
-														<td>Vis ac commodo adipiscing arcu aliquet.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Three</td>
-														<td> Morbi faucibus arcu accumsan lorem.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Four</td>
-														<td>Vitae integer tempus condimentum.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Five</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="2"></td>
-														<td>100.00</td>
-													</tr>
-												</tfoot>
-											</table>
-										</div>
-									</section>
-
-									<section>
-										<h4>Buttons</h4>
-										<ul class="actions">
-											<li><a href="#" class="button primary">Primary</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt">Alternate</a></li>
-										</ul>
-										<ul class="actions">
-											<li><a href="#" class="button primary large">Large</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt small">Small</a></li>
-										</ul>
-										<ul class="actions fit">
-											<li><a href="#" class="button primary fit">Fit</a></li>
-											<li><a href="#" class="button fit">Fit</a></li>
-											<li><a href="#" class="button alt fit">Fit</a></li>
-										</ul>
-										<ul class="actions fit small">
-											<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-											<li><a href="#" class="button fit small">Fit + Small</a></li>
-											<li><a href="#" class="button alt fit small">Fit + Small</a></li>
-										</ul>
-										<ul class="actions">
-											<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-											<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-											<li><a href="#" class="button alt icon solid fa-check">Icon</a></li>
-										</ul>
-										<ul class="actions">
-											<li><span class="button primary disabled">Primary</span></li>
-											<li><span class="button disabled">Default</span></li>
-											<li><span class="button alt disabled">Alternate</span></li>
-										</ul>
-									</section>
-
-									<section>
-										<h4>Form</h4>
-										<form method="post" action="#">
-											<div class="row gtr-uniform">
-												<div class="col-6 col-12-xsmall">
-													<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-												</div>
-												<div class="col-6 col-12-xsmall">
-													<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
-												</div>
-												<div class="col-12">
-													<select name="demo-category" id="demo-category">
-														<option value="">- Category -</option>
-														<option value="1">Manufacturing</option>
-														<option value="1">Shipping</option>
-														<option value="1">Administration</option>
-														<option value="1">Human Resources</option>
-													</select>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-													<label for="demo-priority-low">Low Priority</label>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-normal" name="demo-priority">
-													<label for="demo-priority-normal">Normal Priority</label>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-high" name="demo-priority">
-													<label for="demo-priority-high">High Priority</label>
-												</div>
-												<div class="col-6 col-12-medium">
-													<input type="checkbox" id="demo-copy" name="demo-copy">
-													<label for="demo-copy">Email me a copy of this message</label>
-												</div>
-												<div class="col-6 col-12-medium">
-													<input type="checkbox" id="demo-human" name="demo-human" checked>
-													<label for="demo-human">I am a human and not a robot</label>
-												</div>
-												<div class="col-12">
-													<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-												</div>
-												<div class="col-12">
-													<ul class="actions">
-														<li><input type="submit" value="Send Message" /></li>
-														<li><input type="reset" value="Reset" class="alt" /></li>
-													</ul>
-												</div>
-											</div>
-										</form>
-									</section>
-
-									<section>
-										<h4>Image</h4>
-										<h5>Fit</h5>
-										<span class="image fit"><img src="images/banner.jpg" alt="" /></span>
-										<div class="box alt">
-											<div class="row gtr-50 gtr-uniform">
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-											</div>
-										</div>
-										<h5>Left &amp; Right</h5>
-										<p><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-										<p><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-									</section>
-
-								</div>
-							</section>
-						-->
-
-					</div>
-
-				<!-- Footer -->
-					<section id="footer">
-						<div class="container">
-							<ul class="copyright">
-								<li>&copy; Locagl Georaphy by James Millar Mejino. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</section>
-
+			<div class="header-logo">
+				<a class="site-logo" href="index.html"><img src="images/logo.png" alt="Homepage"></a>
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<nav class="header-nav-wrap">
+				<ul class="header-nav">
+					<li class="current"><a class="smoothscroll" href="#intro" title="home">Home</a></li>
+					<li><a class="smoothscroll" href="#about" title="about">About</a></li>
+					<li><a class="smoothscroll" href="#cv" title="cv">CV</a></li>					
+					<li><a class="smoothscroll" href="#works" title="works">Works</a></li>
+					<li><a class="smoothscroll" href="#contact" title="contact">Contact</a></li>
+				</ul>
+			</nav>
 
-	</body>
+			<a class="header-menu-toggle" href="#0"><span>Menu</span></a>
 
+		</header>
+
+
+        <!-- ## main content
+        ==================================================- -->
+        <main class="s-content">
+
+
+            <!-- ### intro / hero from Hola
+			================================================== -->
+			<section id="intro" class="s-home page-hero">
+
+				<!-- <div class="overlay"></div>
+				<div class="shadow-overlay"></div> -->
+
+				<div class="home-content">
+					<div class="row home-content__main">
+
+						<div class="text-pretitle with-line">Hello World</div>
+
+						<!-- <h1 class="text-huge-title">
+							I am Luther, <br>
+							a digital designer <br>
+							& frontend <br>
+							developer based <br>
+							in Somewhere.
+						</h1> -->
+
+						<!-- <div class="home-content__buttons">
+							<a href="#works" class="smoothscroll btn btn--stroke">Latest Projects</a>
+							<a href="#about" class="smoothscroll btn btn--stroke">More About Me</a>
+						</div> -->
+
+						<div class="home-content__scroll">
+							<a href="#about" class="scroll-link smoothscroll"><span>Scroll Down</span></a>
+						</div>
+
+					</div>
+				</div>
+
+				<ul class="home-social">
+					<li><a href="https://www.instagram.com/local.geography/"><i class="im im-instagram" aria-hidden="true"></i><span>Instagram</span></a></li>
+					<li><a href="https://www.linkedin.com/in/localgeography/"><i class="im im-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a></li>
+					<li><a href="https://github.com/localgeography"><i class="im im-github" aria-hidden="true"></i><span>Github</span></a></li>
+				</ul>
+
+			</section>
+
+
+            <!-- ### about
+            ================================================== -->
+            <section id="about" class="s-about">
+
+
+                <div class="row about-info wide" data-animate-block>
+
+                    <div class="column lg-6 md-12 about-info__pic-block">
+                        <img src="images/about-photo.jpg" 
+                             srcset="images/about-photo.jpg 1x, images/about-photo@2x.jpg 2x" alt="" class="about-info__pic" data-animate-el>
+                    </div>
+
+                    <div class="column lg-6 md-12">
+                        <div class="about-info__text" >
+
+                            <h2 class="text-pretitle with-line" data-animate-el>
+                                About
+                            </h2>
+                            <p class="attention-getter" data-animate-el>
+                                I'm a Montreal-based urban planning professional with a background in geography and urban studies, and over 5 years of experience coordinating projects across the public and nonprofit sectors. I bring a unique combination of technical depth and hands-on community engagement experience, with a track record of delivering complex, multi-stakeholder projects on time and on budget. With a Master's in Urban Planning on my horizon and OUQ licensure as my professional goal, my interests are focused on transportation, adaptive reuse, and community development. <br>
+								<br>
+								Good planning starts with people. The communities most affected by decisions about space, movement, and place should be centred in shaping them. Whether I'm automating a spatial workflow, facilitating a public consultation, or building a documentation system from scratch, I bring the same curiosity and care to the work. I'm bilingual in English and French, and committed to contributing to cities that are not just more livable, but more just, more resilient, and built with more attention to the people who call them home.
+                            </p>
+                            <a href="#contact" class="btn btn--medium u-fullwidth smoothscroll" data-animate-el>Let's Collab</a>
+
+                        </div>
+                    </div>
+                </div> <!-- about-info -->
+
+
+                <div class="row about-expertise" data-animate-block>
+                    <div class="column lg-12">
+
+                        <h2 class="text-pretitle" data-animate-el>Expertise</h2>
+
+                        <ul class="skills-list h1" data-animate-el>
+                            <li>Data</li>
+                            <li>Design</li>
+                            <li>and People</li>
+                            <li>Transforming complex data into clear, actionable insights for diverse audiences.</li>
+                        </ul>
+
+                    </div>
+                </div> <!-- end about-expertise -->
+
+			</section> <!-- end s-about -->
+
+            <!-- ### cv
+            ================================================== -->
+            <section id="cv" class="s-about">
+				<!-- cv -->
+                <div class="row about-timelines" data-animate-block>
+					
+					<!-- left column -->
+                    <div class="column lg-6 tab-12">
+						
+						<!-- experience -->
+                        <h2 class="text-pretitle" data-animate-el>
+                            Experience
+                        </h2>
+						
+						<!-- experience timeline -->
+                        <div class="timeline" data-animate-el>
+						
+						<!-- TA-exp -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">Teaching Assistant</h3>
+								<h5 class="timeline__meta">Computational and Data Systems Institute</h5>
+								<p class="timeline__timeframe">2025</p>
+							</div>
+							<div class="timeline__desc">
+								<p>Supported instruction for a hybrid data science course, helping students build practical skills in RStudio, data analysis, and quantitative methods. <br> Provided one-on-one technical support, and served as the primary point of contact between students, the instructor, and department staff; ensuring a smooth course experience from start to finish.</p>
+							</div>
+						</div>
+						<!-- end TA-exp -->
+						
+						<!-- art dir-exp -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">Art Director</h3>
+								<h5 class="timeline__meta">Independent Short Film</h5>
+								<p class="timeline__timeframe">2024</p>
+							</div>
+							<div class="timeline__desc">
+								<p>Co-led the creative direction for an independent short film, overseeing set design, costume, and graphic design from pre-production through post. <br> Managed the full production budget; drafting estimates, processing transactions, and logging expenses while ensuring zero budget overruns.</p>
+							</div>
+						</div>
+						<!-- end art dir-exp -->
+						
+						<!-- proj coord-exp -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">Project Coordinator</h3>
+								<h5 class="timeline__meta">McGill University</h5>
+								<p class="timeline__timeframe">2022 - 2024</p>
+							</div>
+							<div class="timeline__desc">
+								<p>Planned and executed more than 20 projects; overseeing budget estimation, filing transactions, producing stakeholder communications, recruiting and training staff, liaising with external stakeholders and managing on-site logistics. </p>
+							</div>
+						</div>
+						<!-- end proj coord-exp -->
+						
+						<!-- web coord-exp -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">Website Coordinator</h3>
+								<h5 class="timeline__meta">McGill University</h5>
+								<p class="timeline__timeframe">2022</p>
+							</div>
+							<div class="timeline__desc">
+								<p>Led the end-to-end procurement and rollout of a redesigned departmental website, translated legacy help documentation into plain-language guides, and trained staff on the backend CMS; improving information accessibility and reducing resolution time.</p>
+							</div>
+						</div>
+						<!-- end web coord-exp -->
+						
+						<!-- serv coord-exp -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">Service Coordinator</h3>
+								<h5 class="timeline__meta">McGill University</h5>
+								<p class="timeline__timeframe">2020 - 2022</p>
+							</div>
+							<div class="timeline__desc">
+								<p>Conducted annual compliance reviews against provincial and university policies, ensuring consistent adherence to regulatory requirements and ensuring zero regulatory findings.</p>
+							</div>
+						</div>
+						<!-- end serv coord-exp -->
+						
+						<!-- edu coord-exp -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">Education Coordinator</h3>
+								<h5 class="timeline__meta">Union for Gender Empowerment</h5>
+								<p class="timeline__timeframe">2020 - 2022</p>
+							</div>
+							<div class="timeline__desc">
+								<p>Developed curriculum and served as lead facilitator for Equity Diversity and Inclusion workshops, reaching 50+ attendees per year<br>across a 2-year tenure.</p>
+							</div>
+						</div>
+						<!-- end edu coord-exp -->
+						
+						<!-- beta-exp -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">Mobile App Tester</h3>
+								<h5 class="timeline__meta">Autorité Régionale de Transport Métropolitaine</h5>
+								<p class="timeline__timeframe">2021</p>
+							</div>
+							<div class="timeline__desc">
+								<p>Performed pre-launch quality assurance for a public transit mobile application, executing structured test plans and documenting defects against product requirements. Compiled error data into structured reports for the development team, and submitted prioritized bug reports and UX recommendations that directly informed fixes before public deployment.</p>
+							</div>
+						</div>
+						<!-- end beta-exp -->
+						
+						<!-- elections-exp -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">Information Officer</h3>
+								<h5 class="timeline__meta">Elections Canada</h5>
+								<p class="timeline__timeframe">2021</p>
+							</div>
+							<div class="timeline__desc">
+								<p>Served as a bilingual (EN/FR) information officer at a federal polling station; verifying voter eligibility, directing constituents to appropriate services, and responding to questions throughout the day. Handled ballot counting and verification at close of polls, ensuring accurate and compliant procedures from setup through takedown.</p>
+							</div>
+						</div>
+						<!-- end elections-exp -->
+
+					</div> 
+					<!-- end experience timeline -->
+					
+
+					<!-- volunteering -->
+					<h2 class="text-pretitle" data-animate-el>
+						Volunteering
+					</h2>
+
+					<!-- volunteer timeline -->
+					<div class="timeline" data-animate-el>
+
+						<!-- pac -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">Finance Coordinator</h3>
+								<h5 class="timeline__meta">Pan Asian Collective</h5>
+								<p class="timeline__timeframe">2019 - 2025</p>
+							</div>
+							<div class="timeline__desc">
+								<p>Oversaw finances for a small nonprofit in the cultural sector. Managed budgets, tracked expenses, filed transactions, produced compliance reports, and drafted grant letters in support of over 20 projects over a 5-year tenure.</p>
+							</div>
+						</div>
+						<!-- end pac -->
+
+						<!-- uge -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">Board Member</h3>
+								<h5 class="timeline__meta">Union for Gender Empowerment</h5>
+								<p class="timeline__timeframe">2017 - 2020</p>
+							</div>
+							<div class="timeline__desc">
+								<p>Directed operations of a nonprofit in the advocacy space. Aligned the organization's growing operational needs with it's mission while overseeing budget, training and coordinating volunteers, and administering a resource library ensuring accessibility of educational material for community members. </p>
+							</div>
+						</div>
+						<!-- end uge -->
+						
+						<!-- jbsce -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">Committee Member</h3>
+								<h5 class="timeline__meta">McGill Equity, Diversity, <br>and Inclusion Committee</h5>
+								<p class="timeline__timeframe">2018 - 2020</p>
+							</div>
+							<div class="timeline__desc">
+								<p>Reviewed and advised on strategic plans and annual reports in relation to EDI goals. Planned and executed programming for Queer History Month, and Lavender Graduation Ceremonies.</p>
+							</div>
+						</div>
+						<!-- end jbsce -->
+						
+					</div> 
+					<!-- end volunteer timeline -->
+
+				</div> 
+				<!-- end left column -->
+
+				<!-- right column -->
+				<div class="column lg-6 tab-12">
+
+					<!-- skills header -->
+					<h2 class="text-pretitle" data-animate-el>
+						Skills & Software
+					</h2>
+					
+					<!-- skills timeline -->
+					<div class="timeline" data-animate-el>
+						
+						<!-- gis-skill -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">GIS & Spatial</h3>
+								<h5 class="timeline__meta">ESRI</h5>
+								<p class="timeline__timeframe">ArcGIS Pro ver. 3.6, AGOL, Spatial Analyst, Network Analyst, Survey123, FME</p>
+								<h5 class="timeline__meta">QGIS</h5>
+								<p class="timeline__timeframe">ver 3.4, PostgreSQL, PostGIS </p>
+								<h5 class="timeline__meta">ENVI</h5>
+								<p class="timeline__timeframe">ver 6.1, Deep Learning, ACM, FX, DEM Extraction</p>
+							</div>
+							<!-- <div class="timeline__desc">
+								<p>noteable achievements not named elsewhere</p>
+							</div> -->
+						</div>
+						<!-- end gis-skill -->
+						
+						<!-- data-skill -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">Programming & Data</h3>
+								<h5 class="timeline__meta">Python</h5>
+								<p class="timeline__timeframe">ver 3.14.4, ArcPy, pandas, geopandas, shapely, plotly, matplotlib</p>
+								<h5 class="timeline__meta">RStudio</h5>
+								<p class="timeline__timeframe">ver 2026.01.2+418.pro1, tidyverse, ggplot, tmap, terra, shiny, R Markdown</p>
+							</div>
+							<!-- <div class="timeline__desc">
+								<p><em>NOTEABLE ACHIEVEMENTS NOT NAMED ELSEWHERE</em></p>
+							</div> -->
+						</div>
+						<!-- end data-skill -->
+						
+						<!-- design-skill -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">Design</h3>
+								<h5 class="timeline__meta">Cartography</h5>
+								<p class="timeline__timeframe">ESRI, QGIS</p>
+								<h5 class="timeline__meta">Graphic Design</h5>
+								<p class="timeline__timeframe">Canva, Photoshop</p>
+								<h5 class="timeline__meta">Web Design</h5>
+								<p class="timeline__timeframe">Wordpress, HTML, CSS, JS</p>
+								<h5 class="timeline__meta">Data Visualization</h5>
+								<p class="timeline__timeframe">Excel, RStudio</p>
+								
+							</div>
+							<!-- <div class="timeline__desc">
+								<p><b>noteable achievements not named elsewhere.</b></p>
+							</div> -->
+						</div>
+						<!-- end design-skill -->
+						
+						<!-- pm-skill -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">Project Management</h3>
+								<h5 class="timeline__meta">Agile</h5>
+								<p class="timeline__timeframe">scrum, kanban, asana</p>
+								<h5 class="timeline__meta">Participatory Budgeting</h5>
+								<p class="timeline__desc">Led consultations with community members to decide allocation of funding towards cultural projects.</p>
+								<h5 class="timeline__meta">Process Improvement</h5>
+								<p class="timeline__desc">Optimized client onboarding and service request workflows, aligning cross-departmental collaboration and reducing resolution time.</p>
+								<h5 class="timeline__meta">Regulatory Compliance</h5>
+								<p class="timeline__desc">Conducted annual compliance reviews against provincial and organizational policies, ensuring zero regulatory findings.</p>
+							</div>
+							<div class="timeline__desc">
+								<!-- <p>say something here</p> -->
+							</div>
+						</div>
+						<!-- end pm-skill -->
+						
+						<!-- people-skill -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">People</h3>
+								<h5 class="timeline__meta">Stakeholder Engagement</h5>
+								<p class="timeline__desc">Built relationships and collaborated with stakeholders; aligning long-term plans with positive outcomes for all parties involved.</p>
+								<h5 class="timeline__meta">Facilitation</h5>
+								<p class="timeline__desc">Led conferences, workshops, and discussions. <br>Engaging participants in discovering and applying learning insights.</p>
+								<h5 class="timeline__meta">Active Listening</h5>
+								<p class="timeline__desc">Cultivated mutual understanding and effective communication; reducing miscommunications, increasing efficiency, and contributing to a positive workplace environment.</p>
+							</div>
+							<!-- <div class="timeline__desc">
+								<p>Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est occaecat nisi.</p>
+							</div> -->
+						</div>
+						<!-- end people-skill -->
+						
+					</div>
+					<!-- end skills timeline -->
+					
+					<!-- education header -->
+					<h2 class="text-pretitle" data-animate-el>
+						Education & Certifications
+					</h2>
+
+					<!-- education timeline -->
+					<div class="timeline" data-animate-el>
+
+						<!-- coursera data-edu -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">Google Data Analytics</h3>
+								<h5 class="timeline__meta">Coursera</h5>
+								<p class="timeline__timeframe">2025 - Present</p>
+							</div>
+							<div class="timeline__desc">
+								<p><!-- Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est occaecat nisi. --></p>
+							</div>
+						</div>
+						<!-- end coursera data-edu -->
+
+						<!-- coursera agile-edu -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">Agile Project Management</h4>
+								<h5 class="timeline__meta">Coursera</h5>
+								<p class="timeline__timeframe">2025</p>
+							</div>
+							<div class="timeline__desc">
+								<!-- <p>Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est occaecat nisi.</p> -->
+							</div>
+						</div>
+						<!-- end coursera data-edu -->
+						
+						<!-- mcgill-edu -->
+						<div class="timeline__block">
+							<div class="timeline__bullet"></div>
+							<div class="timeline__header">
+								<h4 class="timeline__title">B.A. Geography - Urban Studies</h4>
+								<h5 class="timeline__meta">McGill University</h5>
+								<p class="timeline__timeframe">2022</p>
+							</div>
+							<div class="timeline__desc">
+								<p>Relevant Courses: <br> Cities in the Modern World, New Master-Planned Cities, Geospatial Analysis, Programming for Spatial Sciences, Advanced Quantitative Methods, Urban Field Studies, Geospatial Web,  Sociology of Ethnic Relations, Sociology of Gender, Queer Theory.</p>
+							</div>
+						</div>
+						<!-- end mcgill-edu -->
+
+					</div> 
+					<!-- end education timeline -->
+                    
+					<!-- cv download -->
+
+						<a href="files/CV-James-Mejino.pdf" download class="btn btn--medium u-fullwidth smoothscroll" data-animate-el>Download CV</a>						
+						<figure>
+                            <img src="images/cv-photo.jpg" 
+                            srcset="images/cv-photo.jpg 1000w, 
+                            images/cv-photo.jpg 500w" 
+                            sizes="(max-width: 1000px) 100vw, 1000px" alt="">
+
+                            <figcaption>
+                               <!--  Here is some random picture. -->
+                            </figcaption>
+                        </figure>
+					
+				</div> 
+				<!-- end right column -->
+
+                </div> 
+				<!-- end about-timelines -->
+			
+			</section> 
+			<!-- end s-cv -->    
+
+
+            <!-- ### works
+            ================================================== -->
+			<section id="works" class="s-works">
+
+                <div class="row works-portfolio">
+
+                    <div class="column lg-12" data-animate-block>
+
+                        <h2 class="text-pretitle" data-animate-el>
+                            Recent Works
+                        </h2>
+                        <p class="h2" data-animate-el>
+                            Here are some of my favorite projects I have done lately. 
+							<br> Feel free to check them out!
+                        </p>
+    
+                        <ul class="folio-list row block-lg-one-half block-stack-on-1000">
+
+                            <!-- 01 sejong -->
+							<li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-01">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images\portfolio\fieldnotescover.png"
+                                             srcset="images\portfolio\fieldnotescover.png 1x, images\portfolio\fieldnotescover.png 2x"  alt="">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Research
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            Sejong
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="https://issuu.com/fieldnotesjournal/docs/fieldnotes_final_pages/s/15387200" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </li> 
+							<!--end folio-list__item -->
+
+                            <!-- 02 transportation -->
+							<li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-02">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/green-line.svg" 
+                                             srcset="images/portfolio/green-line.svg 1x, images/portfolio/green-line.svg 2x" alt="">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Transportation
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            Green Line CTrain
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="https://www.spatialnode.net/projects/service-area-analysis-04fe1e" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </li> 
+							<!--end folio-list__item -->
+
+                            <!-- 03 local geography -->
+							<li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-03">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/local.png" 
+                                             srcset="images/portfolio/local.png 1x, images/portfolio/local.png 2x" alt="">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Photography
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            Local Geography
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="https://www.instagram.com/local.geography/" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </li> 
+							<!--end folio-list__item -->
+
+                            <!-- 04 py auto -->
+							<li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-04">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/python.png"
+                                             srcset="images/portfolio/python.png 1x, images/portfolio/python.png 2x" alt="">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Python
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            Workflow Automation
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="https://github.com/localgeography/auto-aggregate" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </li> 
+							<!--end folio-list__item -->
+
+                            <!-- 15 cherry -->
+							<li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-05">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/cherry.jpg" 
+                                             srcset="images/portfolio/cherry.jpg 1x, images/portfolio/cherry.jpg 2x" alt="">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Data Visualization
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            Cherry Blossom
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="https://github.com/localgeography/cherry" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </li> 
+							<!--end folio-list__item -->
+
+                            <!-- 06 scooters -->
+							<li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-06">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/scooter.jpg" 
+                                             srcset="images/portfolio/scooter.jpg 1x, images/portfolio/scooter.jpg 2x" alt="">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Micromobility
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            e-Scooters
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </li> 
+							<!--end folio-list__item -->
+
+                        </ul> 
+						<!-- end folio-list -->
+
+                    </div> 
+					<!-- end column -->
+
+
+                    <!-- Modal Templates Popup
+                    -------------------------------------------- -->
+                    <div id="modal-01" hidden>
+                        <div class="modal-popup">
+                            <img src="images/portfolio/gallery/sejong2.jpg" alt="">
+                
+                            <div class="modal-popup__desc">
+                                <h5>Sejong: A Comparative View into the New Administrative City’s Successes, Failures, and Anticipated Challenges</h5>
+                                <p><b>Abstract:</b> Putrajaya’s sister city, Sejong is a new administrative city located 120 km from Seoul in the centre of South Korea with a similar vision and function. Much like its sister city, many government offices have been moved to Sejong to address the intense congestion that plagues Seoul. This paper will comparatively discuss how the two cities take different approaches to placemaking, population management, and urban transportation in order to meet similar needs and assess their successes and failures.<br>
+								<br></p>
+                                <ul class="modal-popup__cat">
+                                    <li>Research</li>
+                                    <li>Urban Geography</li>
+                                </ul>
+                            <a href="https://issuu.com/fieldnotesjournal/docs/fieldnotes_final_pages/s/15387200" class="modal-popup__details">Project link</a>
+							</div>                
+                            
+                        </div>
+                    </div> <!-- end modal -->
+
+                    <div id="modal-02" hidden>
+                        <div class="modal-popup">
+                            <img src="images/portfolio/gallery/green-line.gif" alt="">
+                
+                            <div class="modal-popup__desc">
+                                <h5>Green Line CTrain Expansion</h5>
+                                <p>The Green Line is the City of Calgary's largest public infrastructure project to date and is set to run from Calgary's north-central, through downtown, and to the south-east. When finished, the new LRT line will have 29 stations servicing over two dozen communities. <br>
+								<br>This project modelled transit access expansion for Calgary's planned Green Line LRT using ArcGIS Network Analyst plugin, producing service-area maps that quantify potential ridership catchment improvements for city planners. </p>
+                                <ul class="modal-popup__cat">
+                                    <li>Transportation</li>
+									<li>Cartography</li>
+									<li>Calgary</li>
+                                </ul>
+								<a href="https://www.spatialnode.net/projects/service-area-analysis-04fe1e" class="modal-popup__details">Project link</a>
+                            </div>
+                
+                        </div>
+                    </div> <!-- end modal -->
+
+                    <div id="modal-03" hidden>
+                        <div class="modal-popup">
+                            <img src="images/portfolio/gallery/local.png" alt="">
+                
+                            <div class="modal-popup__desc">
+                                <h5>@local.geography on Instagram</h5>
+                                <p>Local Geography is a digital field journal project that I conceived in 2018 and started production in 2022. Inspired by “Messy Urbanisms” and informed by urban geographic fieldwork techniques, the page documents artifacts of human activity found in everyday urban environments. <br> <br>Using photography, geotagging, and critical observation, viewers are invited to investigate the story being told by the everyday urban environment through the lens of a geographer. Using artefacts left behind by human actors who are no longer present at the scene, we can begin to answer the question "What happened here?"</p>
+                                <ul class="modal-popup__cat">
+                                    <li>Photography</li>
+									<li>Urban Geography</li>
+                                </ul>
+								<a href="https://www.instagram.com/local.geography/" class="modal-popup__details">Project link</a>
+                            </div>
+                
+                        </div>
+                    </div> <!-- end modal -->
+
+                    <div id="modal-04" hidden>
+                        <div class="modal-popup">
+                            <img src="images/portfolio/gallery/python.png" alt="">
+                
+                            <div class="modal-popup__desc">
+                                <h5>GIS Workflow Automation with ArcPy</h5>
+                                <p>This project leveraged the ArcPy, geopandas, shapely, and matplotlib packages to engineer a Python script that automates search-area creation, spatial selection, area calculation, and CSV export, reducing a manual GIS workflow to a single script execution.</p>
+                                <ul class="modal-popup__cat">
+                                    <li>Python</li>
+									<li>Automation</li>
+									<li>ArcPy</li>
+                                </ul>
+								<a href="https://github.com/localgeography/auto-aggregate" class="modal-popup__details">Project link</a>
+                            </div>
+                
+                        </div>
+                    </div> <!-- end modal -->
+
+                    <div id="modal-05" hidden>
+                        <div class="modal-popup">
+
+                            <img src="images/portfolio/gallery/cherry.png" alt="">
+                
+                            <div class="modal-popup__desc">
+                                <h5>Data Visualization of Cherry Blossom Season in Vancouver</h5>
+                                <p>This is a data analysis project in RStudio. Above is a map from the 2025 Vancouver Cherry Blossom Festival showing 64 cultivars of cherry blossom trees across 47 different neighbourhoods in the Vancouver Metro Area. Data was retrieved from their website as a JSON file containing information on the cherry blossom trees including their location, cultivar, and blooming period. <br>
+								<br>This project leveraged the tidyverse, dplyr, ggplot2, and patchwork packages to produce a multi-panel R data visualization of Vancouver's spring 2025 cherry blossom season segmented by neighbourhood and cultivar to support urban forestry analysis.<br>
+								<br>Some interesting observations:
+								<br>1) Kitsilano, Renfrew-Collingwood, and Riley Park are the neighbourhoods with some of the most cherry blossom trees.
+								<br>2) Akebono and Kanzan make up a large proportion of all cultivars found in Vancouver.
+								<br>3) Whitcomb is the cultivar that tends to bloom the earliest and Shiro-fugen the latest.</p>
+                                <ul class="modal-popup__cat">
+                                    <li>Vancouver</li>
+									<li>Data Visuzalization</li>
+									<li>RStudio</li>
+                                </ul>
+								<a href="https://github.com/localgeography/cherry" class="modal-popup__details">Project link</a>
+                            </div>
+                
+                        </div>
+                    </div> <!-- end modal -->
+
+                    <div id="modal-06" hidden>
+                        <div class="modal-popup">
+                            <img src="images/portfolio/gallery/scooter.png" alt="">
+                
+                            <div class="modal-popup__desc">
+                                <h5>Research on Montreal's e-Scooter Pilot Project</h5>
+                                <p>In August 2019, the City of Montreal approved permits for Lime, a U.S.-based vehicle-sharing company, to provide up to 430 dockless escooters on the streets. The following month, competing provider, Bird, was also granted a permit to release 250 e-scooters. As a result, 680 escooters were circulating within Montreal and making the city an important testing ground for whether such new vehicle- sharing micromobility services could be successfully integrated into the city’s existing modes of transportation. While these escooters represent a more active lifestyle, lower emissions, and a more sustainable form of transportation, it is important to recognize that they are also controversial due to many users’ refusal to follow existing laws, such as not wearing helmets, not abiding by parking laws, and obstructing pedestrian traffic by riding on sidewalks. <br>
+								<br>A systematic photographic method was used to collect data. We walked along certain streets for a set amount of time, recorded the time, date, and location, and took a photo of every parked eScooter which clearly showed whether the scooter is blocking foot or other traffic. Data was then evaluated using an audit tool, based on the parking guidelines provided in the eScooter mobile apps. The audit tool asks questions on how the scooters are parked and the street characteristics such as the size of the street, the presence of bike lanes, and the presence and size of sidewalks. </p>
+                                <ul class="modal-popup__cat">
+                                    <li>Micromobility</li>
+                                    <li>Montreal</li>
+									<li>Research</li>
+                                </ul>
+                            </div>
+                
+                            <!-- <a href="" class="modal-popup__details">Project link</a> -->
+                        </div>
+                    </div> <!-- end modal -->
+
+                </div> <!-- end works-portfolio -->
+
+
+                
+
+            </section> <!-- end s-works -->
+
+
+            <!-- ### contact
+            ================================================== -->
+            <section id="contact" class="s-contact">
+
+                <div class="row contact-top">
+                    <div class="column lg-12">
+                        <h2 class="text-pretitle">
+                            Get In Touch
+                        </h2>
+
+                        <p class="h2">
+                            I would love to hear from you! Whether you have a question <br> 
+							or just want to chat about trains - shoot me a message.
+                        </p>
+                    </div>
+                </div> <!-- end contact-top -->
+
+                <div class="row contact-bottom">
+                    <!-- footer-email -->
+					<div class="column lg-5 md-5 tab-6 stack-on-550 contact-block">
+                        <h3 class="text-pretitle">Reach me at</h3>
+                        <p class="contact-links">
+                            <a href="mailto:james.millar.mejino@outlook.com" class="mailtoui">james.millar.mejino@outlook.com</a>
+                        </p>
+                    </div>
+                    <!-- footer-links -->
+					<div class="column lg-4 md-5 tab-6 stack-on-550 contact-block">
+                        <h3 class="text-pretitle">Find me on</h3>
+                        <ul class="contact-social">
+							<li><a href="https://www.instagram.com/local.geography/"><!-- <i class="im im-instagram" aria-hidden="true"></i> --><span>Instagram</span></a></li>
+							<li><a href="https://www.linkedin.com/in/localgeography/"><!-- <i class="im im-linkedin" aria-hidden="true"></i> --><span>LinkedIn</span></a></li>
+							<li><a href="https://github.com/localgeography"><!-- <i class="im im-github" aria-hidden="true"></i> --><span>Github</span></a></li>
+				</ul>
+                    </div>
+                    <!-- footer-button -->
+					<div class="column lg-4 md-12 contact-block">
+                        <a href="mailto:james.millar.mejino@outlook.com" class="mailtoui btn btn--medium u-fullwidth contact-btn">Say Hello</a>
+                    </div>
+                </div> <!-- end contact-bottom -->
+
+            </section> <!-- end contact -->
+
+
+        <!-- ## footer
+        ================================================== -->
+        <footer class="s-footer">
+
+            <div class="row">
+                <div class="column ss-copyright">
+                    <span>© Copyright Luther 2021</span> 
+                    <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
+                </div>
+
+                <div class="ss-go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd"><path d="M11 2.206l-6.235 7.528-.765-.645 7.521-9 7.479 9-.764.646-6.236-7.53v21.884h-1v-21.883z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+        </footer> <!-- end s-footer -->
+
+    </div> <!-- end -s-pagewrap -->
+
+	<!-- hola scripts
+	================================================== -->
+	<script src="../Hola/js/jquery-3.2.1.min.js"></script> 
+    <script src="../Hola/js/plugins.js"></script>  <!-- must go before Luther's -->
+	<script src="../Hola/js/main.js"></script> 
+	
+	<!-- Java Script
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
 </html>
-
-
