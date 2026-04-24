@@ -3781,6 +3781,8 @@ img.u-pull-left {
     display			 : flex;
     flex-direction	 : row;
     align-items		 : center; /* flex-start */
+    max-height		 : 90vh;        /* cap the height to the viewport */
+    overflow		 : hidden;
 }
 
 .modal-popup img {
@@ -3803,9 +3805,11 @@ img.u-pull-left {
 }
 
 .modal-popup__desc {
-    width: 40%;
-    padding: var(--vspace-1_25);
+    width		  : 40%;
+    padding       : var(--vspace-1_25);
     /* padding : 0 var(--vspace-1_25) var(--vspace-0_25); */
+    overflow-y    : auto;        /* scroll just the description if it overflows */
+    max-height    : 90vh;
 }
 
 .modal-popup__cat {
