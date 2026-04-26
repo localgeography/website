@@ -1304,7 +1304,7 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family            : var(--font-2);
     font-weight            : 400;
-    color                  : var(--color-text-dark);
+    color                  : var(--color-text);
     font-variant-ligatures : common-ligatures;
     text-rendering         : optimizeLegibility;
 }
@@ -1413,7 +1413,7 @@ blockquote p {
     font-size   : var(--text-lg);
     font-style  : normal;
     line-height : var(--vspace-1_25);
-    color       : var(--color-text-dark);
+    color       : var(--color-text);
     padding     : 0;
 }
 
@@ -1486,7 +1486,7 @@ code {
     white-space   : nowrap;
     background    : var(--color-gray-9);
     border        : 1px solid var(--color-gray-8);
-    color         : var(--color-text-dark);
+    color         : var(--color-text);
     border-radius : 3px;
 }
 
@@ -1604,7 +1604,7 @@ hr.fancy::before {
     padding        : 0 0.125em 0 0;
     text-transform : uppercase;
     background     : transparent;
-    color          : var(--color-text-dark);
+    color          : var(--color-text);
 }
 
 .text-center {
@@ -1927,7 +1927,7 @@ legend {
     font-size     : var(--text-sm);
     line-height   : var(--vspace-0_5);
     margin-bottom : var(--vspace-0_5);
-    color         : var(--color-text-dark);
+    color         : var(--color-text);
     display       : block;
 }
 
@@ -2151,7 +2151,7 @@ td {
 
 th {
     padding     : var(--vspace-0_5) 3.2rem;
-    color       : var(--color-text-dark);
+    color       : var(--color-text);
     font-family : var(--font-1);
     font-weight : 600;
 }
@@ -2212,7 +2212,7 @@ td:last-child {
     padding       : .2rem 1.2rem;
     height        : var(--pgn-num-height);
     margin        : .2rem .2rem;
-    color         : var(--color-text-dark);
+    color         : var(--color-text);
     border-radius : 4px;
     transition    : all, .3s, ease-in-out;
 }
@@ -2275,7 +2275,7 @@ td:last-child {
 
 .pgn__prev svg path,
 .pgn__next svg path {
-    fill : var(--color-text-dark);
+    fill : var(--color-text);
 }
 
 .pgn__prev:focus svg path,
@@ -2430,7 +2430,7 @@ td:last-child {
     top            : calc((var(--vspace-1) * 1.25) * -1);
     font-family    : var(--font-1);
     font-weight    : 600;
-    color          : var(--color-text-dark);
+    color          : var(--color-text);
     text-transform : uppercase;
     letter-spacing : .2em;
     font-size      : var(--text-xs);
@@ -2577,7 +2577,7 @@ td:last-child {
     font-weight : 600;
     line-height : var(--vspace-1_5);
     border      : none;
-    color       : var(--color-text-dark);
+    color       : var(--color-text);
 }
 
 .stats-tabs li a:hover {
