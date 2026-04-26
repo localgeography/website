@@ -374,5 +374,16 @@
 			header.classList.remove('scrolled');
 		}
 	});
+	
+	/* Nav link click highlight
+	 * ------------------------------------------------------ */
+	document.querySelectorAll('.header-nav a').forEach(function(link) {
+		link.addEventListener('click', function() {
+			document.querySelectorAll('.header-nav li').forEach(function(li) {
+				li.classList.remove('current');
+			});
+			this.parentNode.classList.add('current');
+		});
+	});
 
 })(document.documentElement);
